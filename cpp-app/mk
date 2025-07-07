@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# dpw@larkspur.localdomain
+# 2025-07-07 13:59:15
+#
+
+set -eu
+
+
+while [[ $# -gt 0 ]]
+do
+    case $1 in
+        build)
+            g++ -std=c++23  -o main main.cpp
+
+            shift
+        ;;
+        run)
+            DOTENV_PRIVATE_KEY=c57f3141c4f13c46df5c437a9d1f57e684df29a0e16d0817fe26be0c61c5de9f dotenvx run -- ./main
+
+            shift
+        ;;
+    esac
+done
